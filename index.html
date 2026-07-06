@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rupak Gupta — Full Stack Developer</title>
-<meta name="description" content="Rupak Gupta - Enterprise Full Stack Developer. Laravel, React.js, Next.js, Vue.js. 7+ years shipping production SaaS.">
+<meta name="description" content="Rupak Gupta — Enterprise Full Stack Developer. 7+ years shipping production SaaS. Expert in APIs, SSO, payments, SQL triggers, schedulers, and amCharts.">
 <meta property="og:title" content="Rupak Gupta — Full Stack Developer">
-<meta property="og:description" content="7+ years shipping production SaaS across construction, HVAC, e-commerce & HR tech. Laravel, React.js, Next.js, Vue.js.">
+<meta property="og:description" content="7+ years shipping production SaaS across construction, HVAC, e-commerce & HR tech. Laravel, React.js, Next.js, Vue.js — with expertise in APIs, SSO, payment integrations, SQL triggers, and schedulers.">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2218%22 fill=%22%230B1220%22/><text x=%2250%22 y=%2265%22 font-size=%2244%22 font-family=%22monospace%22 fill=%22%23E8A33D%22 text-anchor=%22middle%22>RG</text></svg>">
@@ -144,11 +144,26 @@ section{padding:64px 0;border-top:1px solid var(--border);}
 .card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:22px;display:flex;flex-direction:column;transition:border-color .2s, transform .2s;}
 .card:hover{border-color:var(--amber);transform:translateY(-3px);}
 .card-title{font-family:var(--font-display);font-size:17px;font-weight:600;margin-bottom:6px;}
+.company-badge{align-self:flex-start;font-family:var(--font-mono);font-size:11px;padding:3px 8px;border-radius:4px;margin-bottom:10px;display:inline-flex;align-items:center;gap:5px;}
+.company-badge::before{content:'';width:6px;height:6px;border-radius:50%;flex-shrink:0;}
+.company-badge.galaxy{color:var(--amber);background:rgba(232,163,61,.12);border:1px solid rgba(232,163,61,.35);}
+.company-badge.galaxy::before{background:var(--amber);}
+.company-badge.prakhar{color:#b48ef0;background:rgba(180,142,240,.12);border:1px solid rgba(180,142,240,.35);}
+.company-badge.prakhar::before{background:#b48ef0;}
 .card-desc{font-size:13.5px;color:var(--muted);margin-bottom:14px;flex-grow:1;}
+.card-desc ul{padding-left:17px;margin:0;}
+.card-desc li{margin-bottom:6px;}
+.card-desc li:last-child{margin-bottom:0;}
+.card-summary{margin:0 0 10px;}
+.details-toggle{align-self:flex-start;border:1px solid var(--border);background:transparent;color:var(--amber);font-family:var(--font-mono);font-size:12px;padding:6px 10px;border-radius:4px;cursor:pointer;margin-bottom:12px;}
+.details-toggle:hover{border-color:var(--amber);}
+.card-more[hidden]{display:none;}
+.card-more{margin-top:2px;}
 .card-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px;}
 .tag{font-family:var(--font-mono);font-size:11px;background:var(--surface2);color:var(--teal);padding:3px 8px;border-radius:4px;}
-.card-link{font-family:var(--font-mono);font-size:12.5px;color:var(--amber);}
-.card-link:hover{text-decoration:underline;}
+.card-link{align-self:flex-start;font-family:var(--font-mono);font-size:12.5px;color:var(--bg);background:var(--amber);padding:8px 12px;border-radius:4px;font-weight:600;display:inline-flex;align-items:center;gap:7px;}
+.card-link::after{content:"↗";font-size:12px;line-height:1;}
+.card-link:hover{filter:brightness(1.05);}
 
 /* EDUCATION */
 .edu-item{display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--border);font-size:14.5px;}
@@ -208,7 +223,7 @@ footer{padding:56px 0;text-align:center;}
       <div class="hero-text">
         <div class="eyebrow"><span class="dot"></span> AVAILABLE — 15 DAY NOTICE</div>
         <h1>Rupak Gupta<br><span class="accent">Full Stack Developer</span></h1>
-        <p class="role">7+ years shipping production SaaS across construction, HVAC, e-commerce &amp; HR tech. Laravel, React.js, Next.js, Vue.js — with deep expertise in APIs, SSO, and payment integrations.</p>
+        <p class="role">7+ years shipping production SaaS across construction, HVAC, e-commerce &amp; HR tech. Laravel, React.js, Next.js, Vue.js — with deep expertise in APIs, SSO, payment integrations, SQL triggers, task schedulers, and data visualization (amCharts).</p>
         <div class="contact-links" style="justify-content:flex-start;margin-bottom:0;">
           <a class="btn primary" href="./RG_Stack_July.pdf" download>Download Resume</a>
           <a class="btn" href="#contact">Get in touch</a>
@@ -224,10 +239,10 @@ footer{padding:56px 0;text-align:center;}
 <section id="summary">
   <div class="wrap">
     <div class="sec-head"><span class="sec-num">01</span><span class="sec-title">Summary</span></div>
-    <p class="summary-text">Enterprise Full Stack Developer with <strong>7+ years</strong> shipping production SaaS across construction, HVAC, e-commerce, and HR tech — cutting API response times <strong>20–30%</strong>, integrating <strong>3 payment gateways</strong>, and supporting <strong>10K+ users</strong> on multi-tenant platforms. Proficient in Laravel, PHP, React.js, Next.js, and Vue.js; deep expertise in RESTful APIs, OAuth2/SAML2 SSO, and third-party integrations (Stripe, Razorpay, Microsoft Graph). Actively leverages AI-augmented tools (Cursor AI, Claude Code, GitHub Copilot, Gemini) to accelerate delivery and improve code quality.</p>
+    <p class="summary-text">Enterprise Full Stack Developer with <strong>7+ years</strong> shipping production SaaS across construction, HVAC, e-commerce, and HR tech — cutting API response times <strong>20–30%</strong>, integrating <strong>3 payment gateways</strong> (Stripe, Razorpay, Authorize.Net), and supporting <strong>10K+ users</strong> on multi-tenant platforms. Proficient in Laravel, PHP, Next.js, React.js, and Vue.js; deep expertise in RESTful APIs, OAuth2/SAML2 SSO, SQL triggers, background cron schedulers, and data visualization (amCharts). Actively leverages AI-assisted development tools (Cursor AI, Claude Code, GitHub Copilot, Gemini) to accelerate delivery and improve code quality.</p>
     <div class="stats">
       <div class="stat"><div class="n">7+</div><div class="l">Years Experience</div></div>
-      <div class="stat"><div class="n">6</div><div class="l">Production Platforms</div></div>
+      <div class="stat"><div class="n">6+</div><div class="l">Production Platforms</div></div>
       <div class="stat"><div class="n">3</div><div class="l">Payment Gateways</div></div>
       <div class="stat"><div class="n">10K+</div><div class="l">Users Supported</div></div>
     </div>
@@ -241,7 +256,7 @@ footer{padding:56px 0;text-align:center;}
     <div class="skill-group">
       <div class="g-label">Frontend</div>
       <div class="chips">
-        <span class="chip">React.js</span><span class="chip">Vue.js (2/3)</span><span class="chip">Next.js</span><span class="chip">TypeScript</span><span class="chip">JavaScript (ES6+)</span><span class="chip">HTML5</span><span class="chip">CSS3</span><span class="chip">Tailwind CSS</span><span class="chip">Bootstrap</span><span class="chip">Material UI</span><span class="chip">jQuery</span>
+        <span class="chip">React.js</span><span class="chip">Vue.js (2/3)</span><span class="chip">Next.js</span><span class="chip">TypeScript</span><span class="chip">JavaScript (ES6+)</span><span class="chip">HTML5</span><span class="chip">CSS3</span><span class="chip">Tailwind CSS</span><span class="chip">Bootstrap</span><span class="chip">Material UI</span><span class="chip">jQuery</span><span class="chip">amCharts</span>
       </div>
     </div>
 
@@ -262,7 +277,7 @@ footer{padding:56px 0;text-align:center;}
     <div class="skill-group">
       <div class="g-label">Backend &amp; Database</div>
       <div class="chips">
-        <span class="chip">PHP</span><span class="chip">Laravel (6/8/12)</span><span class="chip">CodeIgniter</span><span class="chip">Node.js</span><span class="chip">Sequelize</span><span class="chip">REST / SOAP APIs</span><span class="chip">MySQL</span><span class="chip">PostgreSQL</span><span class="chip">MS SQL Server</span><span class="chip">Firebase</span><span class="chip">AWS S3</span>
+        <span class="chip">PHP</span><span class="chip">Laravel (6/8/12)</span><span class="chip">CodeIgniter</span><span class="chip">Node.js</span><span class="chip">Sequelize</span><span class="chip">Python</span><span class="chip">REST / SOAP APIs</span><span class="chip">MySQL</span><span class="chip">PostgreSQL</span><span class="chip">MS SQL Server</span><span class="chip">Firebase</span><span class="chip">AWS S3</span><span class="chip">Cron Jobs</span><span class="chip">Schedulers</span><span class="chip">SQL Triggers</span>
       </div>
     </div>
 
@@ -274,7 +289,14 @@ footer{padding:56px 0;text-align:center;}
     </div>
 
     <div class="skill-group">
-      <div class="g-label">AI-Augmented Development</div>
+      <div class="g-label">Methodologies &amp; Project Delivery</div>
+      <div class="chips">
+        <span class="chip">Agile / Scrum</span><span class="chip">Sprint Planning</span><span class="chip">User Stories</span><span class="chip">SDLC</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <div class="g-label">AI-Assisted Development</div>
       <div class="chips">
         <span class="chip">Cursor AI</span><span class="chip">Claude Code</span><span class="chip">GitHub Copilot</span><span class="chip">Gemini</span><span class="chip">OpenAI Codex</span>
       </div>
@@ -293,8 +315,9 @@ footer{padding:56px 0;text-align:center;}
       </div>
       <div class="job-co">Galaxy Weblinks Ltd · Laravel, Vue.js, Next.js, Sequelize, React.js</div>
       <ul>
-        <li>Spearheaded <strong>5+ enterprise modules</strong> (Pronovos, PlanningForProfit) end-to-end; mentored 1 junior developer; slashed API response times <strong>~20–30%</strong> via Eloquent query tuning, Redis caching, and Laravel Queues; architected OAuth2/SAML2 SSO, Google 2FA, and Spatie RBAC for iOS/Android multi-tenant platform supporting <strong>10K+ users</strong>.</li>
-        <li>Integrated <strong>3 payment gateways</strong> (Stripe, Razorpay, Authorize.net) and 4+ third-party services (AWS S3, Dropbox, Microsoft Graph, Sage Intacct) via REST/SOAP APIs; championed AI-augmented development to cut debugging cycles across 3+ concurrent projects.</li>
+        <li>Led full-stack development and migration of enterprise modules for <strong>Pronovos</strong> (PHP/Laravel to Next.js/amCharts) and <strong>PlanningForProfit</strong>, implementing SQL triggers and background cron schedulers to automate billing statements and email logs, while cutting API latency by **20–30%**.</li>
+        <li>Architected multi-tenant portal auth and payment flows, integrating OAuth2/SAML2 SSO, Google/LinkedIn logins, Google 2FA, and Spatie RBAC with payment gateways (**Stripe, Razorpay, Authorize.Net**).</li>
+        <li>Built data-driven client dashboards and automation tools, including Gemini AI-assisted Change Order drafting, passwordless dispatch dashboard verification via Job Site # and License Plate, and managed sprint-wise modules delivery.</li>
       </ul>
     </div>
 
@@ -305,9 +328,9 @@ footer{padding:56px 0;text-align:center;}
       </div>
       <div class="job-co">Prakhar Softwares Solutions Pvt. Ltd · PHP, Laravel, Vue.js, jQuery, WordPress, CodeIgniter</div>
       <ul>
-        <li>Engineered full-stack <strong>Naukriyan.com</strong> job portal (e-governance + corporate recruitment) with role-specific panels for Admin, Employer, and Job Seeker across 3+ client projects.</li>
-        <li>Designed and launched <strong>BecilJobs.com</strong> for BECIL (Laravel + Vue.js) — admin panel, job listing management, and end-to-end candidate application flow.</li>
-        <li>Resolved production issues and completed a 3-month School Management System (Core PHP, MySQL) applying MVC architecture and relational database design.</li>
+        <li>Engineered e-governance and recruitment portals (<strong>Naukriyan.com, BecilJobs.com</strong>) with role-based access panels, video resumes, custom candidate screening questionnaires, and consultant commission modules.</li>
+        <li>Developed multi-channel payment flows (online **Razorpay** + manual in-office receipts) alongside financial year tracking dashboards and charting systems to graph cash flows against government Job IDs.</li>
+        <li>Built step-by-step manual recruitment status pipelines from application to onboarding with document attachments, and exposed category-wise REST APIs to integrate job listings onto external company career pages.</li>
       </ul>
     </div>
   </div>
@@ -320,44 +343,158 @@ footer{padding:56px 0;text-align:center;}
 
       <div class="card">
         <div class="card-title">PlanningForProfit</div>
-        <div class="card-desc">HVAC/home comfort platform for job pricing, gross margin management, and full sales proposal lifecycle — multi-tier pricing, PDF generation, e-signature with OTP.</div>
-        <div class="card-tags"><span class="tag">Laravel 8</span><span class="tag">Vue 2</span><span class="tag">Stripe</span><span class="tag">Vuex</span></div>
-        <a class="card-link" href="https://app.planningforprofit.com/login" target="_blank" rel="noopener">app.planningforprofit.com →</a>
+        <div class="company-badge galaxy">Galaxy Weblinks Ltd</div>
+        <div class="card-desc">
+          <p class="card-summary">HVAC/home comfort proposal platform for gross margin pricing, financing options, secure customer signatures, and Excel-backed backend calculations.</p>
+          <button class="details-toggle" type="button" aria-expanded="false" aria-controls="planning-details">View details</button>
+          <div class="card-more" id="planning-details" hidden>
+            <ul>
+              <li>Built Proposal Tool master catalog for brands, equipment, materials, images, and financing plans.</li>
+              <li>Enabled company-specific subscriber setup for proposal defaults, departments, labor, overhead, and profit rules.</li>
+              <li>Supported subscriber overrides for dealer cost, labor hours, material cost, equipment visibility, and financing settings.</li>
+              <li>Implemented proposal creation with customer, department, consultant, equipment, material, quantity, and financing inputs.</li>
+              <li>Applied client-provided Excel formulas on the backend to match gross margin, selling price, cash discount, and monthly payment outputs.</li>
+              <li>Saved proposal inputs and calculated option/tier values for audit and history.</li>
+              <li>Managed proposal statuses from Draft through Sent, Viewed, Accepted, Rejected, Signed, and Under Review.</li>
+              <li>Built secure email/OTP-based proposal review and signature flow with single-use customer links.</li>
+              <li>Leveraged Gemini CLI and Claude for faster, more efficient delivery.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card-tags"><span class="tag">Laravel 8</span><span class="tag">Vue 2</span><span class="tag">Stripe</span><span class="tag">Vuex</span><span class="tag">AI-Assisted Development</span></div>
+        <a class="card-link" href="https://app.planningforprofit.com/login" target="_blank" rel="noopener">Visit Site</a>
       </div>
 
       <div class="card">
         <div class="card-title">Construction Intelligence Cloud (Pronovos)</div>
-        <div class="card-desc">Cloud-based construction platform for financial tracking, change orders, RFIs, estimating, and facilities management with OAuth2/SAML2 SSO.</div>
-        <div class="card-tags"><span class="tag">Laravel 12</span><span class="tag">PHP 8.3</span><span class="tag">AWS S3</span><span class="tag">Passport</span></div>
-        <a class="card-link" href="https://app.pronovos.com/login" target="_blank" rel="noopener">app.pronovos.com →</a>
+        <div class="company-badge galaxy">Galaxy Weblinks Ltd</div>
+        <div class="card-desc">
+          <p class="card-summary">Cloud-based construction platform for financial tracking, change orders, RFIs, estimating, and facilities management with OAuth2/SAML2 SSO.</p>
+          <button class="details-toggle" type="button" aria-expanded="false" aria-controls="pronovos-details">View details</button>
+          <div class="card-more" id="pronovos-details" hidden>
+            <ul>
+              <li>Covered end-to-end Facilities management, including work orders, trades, vendor/client quotes, invoice flows, attachments, PDFs, public status pages, Foundation/ERP sync, and email logs driven by SQL triggers and a cron scheduler.</li>
+              <li>Implemented and analyzed the complete Change Orders workflow, including CO Requests, T&M Tickets, and Executed Change Orders.</li>
+              <li>Built support for T&M ticket creation, labor/material/equipment line items, public signature approval/rejection, PDF generation, and conversion of signed T&M tickets into CO Requests.</li>
+              <li>Worked on CO Request features such as revisions, settings, comments, attachments, line items, taxes, email history, logs, accounting sync, and export/PDF flows.</li>
+              <li>Contributed to Gemini AI-assisted Change Order creation, where AI generates properly formatted CO Request drafts from user input using defined business rules, validation checks, project settings, and user review before saving.</li>
+              <li>Leveraged Gemini CLI and Claude for faster, more efficient delivery.</li>
+              <li>Integrated amCharts to build interactive financial analytics dashboards for real-time construction intelligence metrics.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card-tags"><span class="tag">Next.js</span><span class="tag">Laravel 8/12</span><span class="tag">PHP 7.4/8.2</span><span class="tag">MySQL</span><span class="tag">ERP/Foundation Sync</span><span class="tag">PDF Generation</span><span class="tag">Email Workflows</span><span class="tag">AI-Assisted Development</span><span class="tag">Gemini AI</span><span class="tag">Cron Jobs</span><span class="tag">Schedulers</span><span class="tag">AmCharts</span></div>
+        <a class="card-link" href="https://app.pronovos.com/login" target="_blank" rel="noopener">Visit Site</a>
       </div>
 
       <div class="card">
         <div class="card-title">Resai — AI Resume Builder</div>
-        <div class="card-desc">AI-powered resume builder with credit-based Razorpay downloads; supports English and Hindi. Built responsive landing page and app UI.</div>
-        <div class="card-tags"><span class="tag">React.js</span><span class="tag">Next.js</span><span class="tag">Tailwind</span><span class="tag">Razorpay</span></div>
-        <a class="card-link" href="https://resai.co/en/home" target="_blank" rel="noopener">resai.co →</a>
+        <div class="company-badge galaxy">Galaxy Weblinks Ltd</div>
+        <div class="card-desc">
+          <p class="card-summary">AI-powered resume builder with credit-based Razorpay downloads; supports English and Hindi.</p>
+          <button class="details-toggle" type="button" aria-expanded="false" aria-controls="resai-details">View details</button>
+          <div class="card-more" id="resai-details" hidden>
+            <ul>
+              <li>Developed the marketing landing page (featuring Pricing, Testimonials, FAQs, and Tutorials) using React.js and Tailwind CSS with English &amp; Hindi support at <a href="https://resai.co/en/home" target="_blank" rel="noopener" style="color:var(--teal);">resai.co</a>.</li>
+              <li>Engineered the core web application portal using Next.js and Material UI at <a href="https://app.resai.co/" target="_blank" rel="noopener" style="color:var(--teal);">app.resai.co</a>, accessed via Google and LinkedIn OAuth login.</li>
+              <li>Integrated backend REST APIs (powered by Python &amp; OpenAI) to analyze uploaded/copied resumes, calculate CV scores, list skill gaps, and identify missing details.</li>
+              <li>Built features enabling users to improve their resume score, apply directly for matching roles, and complete recommended courses to bridge skill gaps.</li>
+              <li>Designed a multi-template resume editor workspace with a credit-based download model (3 free credits for new users, with Razorpay integration to purchase more credits).</li>
+              <li>Implemented comprehensive English and Hindi language localization across both the landing page and app portal.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card-tags"><span class="tag">React.js</span><span class="tag">Next.js</span><span class="tag">Material UI</span><span class="tag">Tailwind</span><span class="tag">Python</span><span class="tag">Razorpay</span><span class="tag">AI Integration</span></div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;">
+          <a class="card-link" href="https://resai.co/en/home" target="_blank" rel="noopener">Landing Site</a>
+          <a class="card-link" href="https://app.resai.co/" target="_blank" rel="noopener">App Portal</a>
+        </div>
       </div>
 
       <div class="card">
         <div class="card-title">Hall Constructor — Ticketing System</div>
-        <div class="card-desc">Web app for Hall Contractors to manage daily ticket punching and track work activities across Broker, Foreman, Vendor, and Admin roles.</div>
-        <div class="card-tags"><span class="tag">Laravel</span><span class="tag">Vue.js</span><span class="tag">Bootstrap</span></div>
-        <a class="card-link" href="https://hallticketing.com/account/login" target="_blank" rel="noopener">hallticketing.com →</a>
+        <div class="company-badge galaxy">Galaxy Weblinks Ltd</div>
+        <div class="card-desc">
+          <p class="card-summary">Web application for Hall Contractors to manage daily ticketing, truck sourcing, driver timesheets, and invoicing across five distinct organizational roles.</p>
+          <button class="details-toggle" type="button" aria-expanded="false" aria-controls="hall-details">View details</button>
+          <div class="card-more" id="hall-details" hidden>
+            <ul>
+              <li><strong>Admin Panel:</strong> Managed onboarding and user lifecycles for Foremen, Brokers, Logistic Managers, and Project Coordinators; approved timesheet tickets, managed equipment registries, and viewed payment/timesheet reports.</li>
+              <li><strong>Foreman &amp; Logistic Manager:</strong> Sourced trucks from brokers, managed job cards/tickets (with fields for truck presence, cycle times, and materials), logged timesheets, and managed settings (dumpsites, cost codes).</li>
+              <li><strong>Broker Portal:</strong> Allowed profile management (with photo upload), configurable notification preferences, password reset flows, and tracked ticket details (total hours, driver license plate, and date).</li>
+              <li><strong>Project Coordinator:</strong> Provided interfaces to access, view, and verify Broker invoices and records.</li>
+              <li><strong>Truck Driver View:</strong> Accessed the Ticket Dashboard securely via Job Site # and License Plate to view total hours, broker name, date, and job number.</li>
+              <li><strong>General Access:</strong> Configured secure authenticated logins and email-based password reset request workflows.</li>
+              <li><strong>Project Delivery:</strong> Prepared user stories and managed sprint-wise task/module deliveries to track progress and complete the project within the designated timeline.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card-tags"><span class="tag">Laravel</span><span class="tag">Vue.js</span><span class="tag">Bootstrap</span><span class="tag">MySQL</span><span class="tag">Role-Based Access Control</span><span class="tag">Invoicing &amp; Timesheets</span></div>
+        <a class="card-link" href="https://hallticketing.com/account/login" target="_blank" rel="noopener">Visit Site</a>
       </div>
 
       <div class="card">
         <div class="card-title">24HourDigitizing</div>
-        <div class="card-desc">Embroidery e-commerce platform for digitizing/vector orders with 3 user types and Authorize.net subscription plans.</div>
-        <div class="card-tags"><span class="tag">Next.js</span><span class="tag">TypeScript</span><span class="tag">Sequelize</span></div>
-        <a class="card-link" href="https://www.24hourdigitizing.com/" target="_blank" rel="noopener">24hourdigitizing.com →</a>
+        <div class="company-badge galaxy">Galaxy Weblinks Ltd</div>
+        <div class="card-desc">
+          <p class="card-summary">B2B embroidery digitizing and vector conversion e-commerce platform featuring a dynamic pricing engine, three-tiered access dashboards, and automated statement ledger systems.</p>
+          <button class="details-toggle" type="button" aria-expanded="false" aria-controls="digitizing-details">View details</button>
+          <div class="card-more" id="digitizing-details" hidden>
+            <ul>
+              <li><strong>Dynamic Pricing Engine:</strong> Formulated stitch-range pricing, vector complexity multipliers, user membership plans (Regular, Silver, Gold, Platinum), and rush delivery surcharges.</li>
+              <li><strong>Three-Tiered Dashboards:</strong> Designed tailored workspaces for Customers (order checkouts), Vendors (job deliverables and stitch reporting), and Admins (order assignment and sales reporting).</li>
+              <li><strong>Payment Integration:</strong> Managed Authorize.Net transactions, incorporating direct credit card checkouts, temporary solvency holds (up to $50), and subscription billing.</li>
+              <li><strong>Receivables Ledger:</strong> Constructed aging tables for outstanding invoices utilizing custom grace periods (Net 15/Net 30/Net 45), color-coded warnings, and automated statement generation.</li>
+              <li><strong>AWS S3 & Storage Optimizations:</strong> Connected AWS S3 cloud storage for design file distribution and created client-side attachment compression to optimize upload times.</li>
+              <li><strong>Automated Notifications:</strong> Integrated real-time transactional alerts for payment failures alongside background cron-scheduled reminders for outstanding invoices and subscription renewals.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card-tags"><span class="tag">Next.js</span><span class="tag">TypeScript</span><span class="tag">Sequelize</span><span class="tag">MySQL</span><span class="tag">Authorize.Net</span><span class="tag">AWS S3</span><span class="tag">Material UI</span><span class="tag">Tailwind CSS</span><span class="tag">Cron Jobs</span><span class="tag">Schedulers</span></div>
+        <a class="card-link" href="https://www.24hourdigitizing.com/" target="_blank" rel="noopener">Visit Site</a>
       </div>
 
       <div class="card">
         <div class="card-title">Naukriyan.com — Job Portal</div>
-        <div class="card-desc">New-age job portal connecting employers and job seekers across e-governance and corporate sectors with video resume services.</div>
-        <div class="card-tags"><span class="tag">Laravel</span><span class="tag">Vue.js</span><span class="tag">MySQL</span></div>
-        <a class="card-link" href="https://naukriyan.com/" target="_blank" rel="noopener">Naukriyan.com →</a>
+        <div class="company-badge prakhar">Prakhar Softwares Solutions Pvt. Ltd</div>
+        <div class="card-desc">
+          <p class="card-summary">Comprehensive recruitment portal connecting employers and candidates with specialized video resume features, custom pre-screening questionnaires, and consultant commissions.</p>
+          <button class="details-toggle" type="button" aria-expanded="false" aria-controls="naukriyan-details">View details</button>
+          <div class="card-more" id="naukriyan-details" hidden>
+            <ul>
+              <li><strong>Four-Role Access System:</strong> Built tailored workflows and panels for Admins, Jobseekers, Employers, and recruitment Consultants.</li>
+              <li><strong>Custom Pre-Screening:</strong> Enabled employers to create custom application questionnaires (prerequisite skills, salary requirements, location) backed by a common default question bank.</li>
+              <li><strong>Candidate Engagement:</strong> Implemented standard job board features along with video resume uploads, job saving, company following, and employer rating utilities.</li>
+              <li><strong>Consultant Commission Workflows:</strong> Developed modules to track consultant-referred hires, supporting one-time agreement payments or monthly recurring commission models.</li>
+              <li><strong>External Career Page Integration:</strong> Exposed REST API endpoints to fetch job openings dynamically by category for the <a href="https://prakharsoftwares.com/career" target="_blank" rel="noopener" style="color:var(--teal);">prakharsoftwares.com/career</a> site, redirecting candidate application flows back to the main portal.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card-tags"><span class="tag">Laravel</span><span class="tag">Vue.js</span><span class="tag">MySQL</span><span class="tag">REST APIs</span><span class="tag">Third-Party Integration</span></div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;">
+          <a class="card-link" href="https://naukriyan.com/" target="_blank" rel="noopener">Visit Site</a>
+          <a class="card-link" href="https://prakharsoftwares.com/career" target="_blank" rel="noopener">Career Page</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">BecilJobs.com — Job Portal</div>
+        <div class="company-badge prakhar">Prakhar Softwares Solutions Pvt. Ltd</div>
+        <div class="card-desc">
+          <p class="card-summary">E-governance recruitment portal for Broadcast Engineering Consultants India Limited (BECIL), supporting government vacancy listings, multi-channel fee collections, and step-by-step hiring tracking.</p>
+          <button class="details-toggle" type="button" aria-expanded="false" aria-controls="becil-details">View details</button>
+          <div class="card-more" id="becil-details" hidden>
+            <ul>
+              <li><strong>Government-Level Vacancies:</strong> Implemented posting controls mapping job listings to predefined unique Application IDs aligned with authorized hiring circulars.</li>
+              <li><strong>Category-Wise Application Fees:</strong> Configured vacancy posting setups defining specific fee amounts categorized by applicant demographic slots.</li>
+              <li><strong>Dual-Mode Payments:</strong> Created billing systems to collect application fees online via Razorpay integration and offline via in-office cashier collections.</li>
+              <li><strong>Financial Flow Analytics:</strong> Built dashboards and visual graphs to track cash flows, fee collections, and disbursals against Job IDs grouped by Financial Years.</li>
+              <li><strong>Recruitment Trackers:</strong> Programmed multi-phase onboarding workflows (from application to placement) allowing document attachments at each stage of candidate review.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card-tags"><span class="tag">Laravel</span><span class="tag">Vue.js</span><span class="tag">MySQL</span><span class="tag">Razorpay</span><span class="tag">E-Governance</span><span class="tag">Charts &amp; Reporting</span></div>
+        <a class="card-link" href="https://beciljobs.com/" target="_blank" rel="noopener">Visit Site</a>
       </div>
 
     </div>
@@ -383,10 +520,7 @@ footer{padding:56px 0;text-align:center;}
       <div><div class="deg">10th — CBSE Board</div><div class="sc"></div></div>
       <div class="score">2009 · 62.4%</div>
     </div>
-    <div class="edu-item">
-      <div><div class="deg">AI Fundamentals — Google (Coursera)</div><div class="sc"></div></div>
-      <div class="score"></div>
-    </div>
+
   </div>
 </section>
 
@@ -394,11 +528,7 @@ footer{padding:56px 0;text-align:center;}
   <div class="wrap">
     <div class="sec-head"><span class="sec-num">06</span><span class="sec-title">Certifications &amp; Training</span></div>
     <div class="projects">
-      <div class="card">
-        <div class="card-title">AI Fundamentals</div>
-        <div class="card-desc">Google (via Coursera) — foundations of AI/ML concepts applied to production engineering workflows.</div>
-        <div class="card-tags"><span class="tag">Google</span><span class="tag">Coursera</span></div>
-      </div>
+
       <div class="card">
         <div class="card-title">School Management System</div>
         <div class="card-desc">3-month professional training project — Core PHP, MySQL, MVC architecture, relational database design.</div>
@@ -432,6 +562,16 @@ const menuBtn = document.getElementById('menuBtn');
 const mobileMenu = document.getElementById('mobileMenu');
 menuBtn.addEventListener('click', ()=> mobileMenu.classList.toggle('open'));
 mobileMenu.querySelectorAll('a').forEach(a=> a.addEventListener('click', ()=> mobileMenu.classList.remove('open')));
+
+document.querySelectorAll('.details-toggle').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const target = document.getElementById(btn.getAttribute('aria-controls'));
+    const isOpen = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!isOpen));
+    btn.textContent = isOpen ? 'View details' : 'Hide details';
+    target.hidden = isOpen;
+  });
+});
 
 const els = document.querySelectorAll('.impact-card, .card, .job, .stat');
 els.forEach(el => el.classList.add('reveal'));
