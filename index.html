@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rupak Gupta — Full Stack Developer</title>
+<meta name="description" content="Rupak Gupta - Enterprise Full Stack Developer. Laravel, React.js, Next.js, Vue.js. 7+ years shipping production SaaS.">
+<meta property="og:title" content="Rupak Gupta — Full Stack Developer">
+<meta property="og:description" content="7+ years shipping production SaaS across construction, HVAC, e-commerce & HR tech. Laravel, React.js, Next.js, Vue.js.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2218%22 fill=%22%230B1220%22/><text x=%2250%22 y=%2265%22 font-size=%2244%22 font-family=%22monospace%22 fill=%22%23E8A33D%22 text-anchor=%22middle%22>RG</text></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0B1220;
+  --surface:#121B2E;
+  --surface2:#0F1830;
+  --border:#22304A;
+  --text:#E6EAF2;
+  --muted:#7C8AA5;
+  --amber:#E8A33D;
+  --teal:#4FD1C5;
+  --font-display:'Space Grotesk',sans-serif;
+  --font-body:'Inter',sans-serif;
+  --font-mono:'JetBrains Mono',monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--font-body);
+  line-height:1.6;
+  overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none;}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+
+/* NAV */
+nav{
+  position:sticky;top:0;z-index:50;
+  background:rgba(11,18,32,0.85);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--border);
+}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;height:64px;}
+.logo{font-family:var(--font-mono);font-weight:600;font-size:15px;color:var(--amber);letter-spacing:0.5px;text-transform:uppercase;}
+.logo span{color:var(--muted);}
+.navlinks{display:flex;gap:28px;font-family:var(--font-mono);font-size:13px;color:var(--muted);}
+.navlinks a:hover{color:var(--teal);}
+.navlinks{display:none;}
+@media(min-width:720px){.navlinks{display:flex;}}
+.menu-btn{display:flex;flex-direction:column;gap:4px;background:none;border:none;cursor:pointer;padding:8px;}
+.menu-btn span{width:20px;height:2px;background:var(--text);}
+@media(min-width:720px){.menu-btn{display:none;}}
+.mobile-menu{display:none;flex-direction:column;gap:4px;padding:12px 24px 20px;border-top:1px solid var(--border);font-family:var(--font-mono);font-size:13px;}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{padding:10px 0;color:var(--muted);border-bottom:1px solid var(--border);}
+.mobile-menu a:last-child{border-bottom:none;}
+@media(min-width:720px){.mobile-menu{display:none !important;}}
+
+/* HERO */
+.hero{padding:72px 0 56px;}
+.hero-top{display:flex;flex-direction:column-reverse;gap:28px;align-items:flex-start;}
+@media(min-width:720px){.hero-top{flex-direction:row;justify-content:space-between;align-items:flex-start;}}
+.avatar{
+  width:96px;height:96px;border-radius:14px;flex-shrink:0;
+  background:linear-gradient(135deg,var(--amber),var(--teal));
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-display);font-size:32px;font-weight:700;color:var(--bg);
+  border:1px solid var(--border);
+}
+.hero-text{max-width:560px;}
+.eyebrow{font-family:var(--font-mono);font-size:12px;color:var(--teal);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:18px;display:flex;align-items:center;gap:8px;}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--teal);box-shadow:0 0 8px var(--teal);animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.3;}}
+h1{font-family:var(--font-display);font-size:44px;font-weight:600;line-height:1.15;margin-bottom:12px;text-transform:uppercase;letter-spacing:0.5px;}
+@media(min-width:720px){h1{font-size:56px;}}
+h1 .accent{color:var(--amber);}
+.role{font-size:18px;color:var(--muted);margin-bottom:32px;max-width:560px;}
+
+/* API PANEL - signature element */
+.impact-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:10px;
+  overflow:hidden;
+  box-shadow:0 20px 60px -20px rgba(0,0,0,0.6);
+}
+.impact-head{
+  display:flex;align-items:center;gap:10px;
+  padding:16px 22px;background:var(--surface2);border-bottom:1px solid var(--border);
+  font-family:var(--font-mono);font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;
+}
+.impact-body{padding:24px 22px;display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+.impact-item .n{font-family:var(--font-display);font-size:30px;font-weight:700;color:var(--amber);}
+.impact-item .l{font-size:12.5px;color:var(--muted);margin-top:4px;line-height:1.4;}
+.impact-foot{padding:14px 22px;border-top:1px solid var(--border);font-family:var(--font-mono);font-size:12px;color:var(--teal);display:flex;align-items:center;gap:8px;}
+
+/* SECTIONS */
+section{padding:64px 0;border-top:1px solid var(--border);}
+.sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:32px;}
+.sec-num{font-family:var(--font-mono);color:var(--muted);font-size:13px;}
+.sec-title{font-family:var(--font-display);font-size:26px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;}
+
+/* SUMMARY */
+.summary-text{font-size:16px;color:var(--muted);max-width:720px;}
+.summary-text strong{color:var(--text);font-weight:600;}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:32px;}
+@media(min-width:720px){.stats{grid-template-columns:repeat(4,1fr);}}
+.stat{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:18px;}
+.stat .n{font-family:var(--font-mono);font-size:24px;color:var(--amber);font-weight:600;}
+.stat .l{font-size:12px;color:var(--muted);margin-top:4px;}
+
+/* SKILLS */
+.skill-group{margin-bottom:22px;}
+.skill-group .g-label{font-family:var(--font-mono);font-size:12px;color:var(--teal);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;}
+.chips{display:flex;flex-wrap:wrap;gap:8px;}
+.chip{
+  font-family:var(--font-mono);font-size:12.5px;color:var(--text);
+  background:var(--surface);border:1px solid var(--border);
+  padding:6px 12px;border-radius:5px;
+}
+
+/* EXPERIENCE */
+.job{position:relative;padding-left:28px;margin-bottom:40px;border-left:2px solid var(--border);}
+.job:last-child{margin-bottom:0;}
+.job::before{content:'';position:absolute;left:-6px;top:4px;width:10px;height:10px;border-radius:50%;background:var(--amber);box-shadow:0 0 0 3px var(--bg);}
+.job-head{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;margin-bottom:6px;}
+.job-title{font-family:var(--font-display);font-size:18px;font-weight:600;}
+.job-date{font-family:var(--font-mono);font-size:12px;color:var(--muted);}
+.job-co{color:var(--teal);font-size:14px;margin-bottom:10px;}
+.job ul{padding-left:18px;color:var(--muted);font-size:14.5px;}
+.job li{margin-bottom:8px;}
+.job li strong{color:var(--text);}
+
+/* PROJECTS */
+.projects{display:grid;grid-template-columns:1fr;gap:20px;}
+@media(min-width:720px){.projects{grid-template-columns:repeat(2,1fr);}}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:22px;display:flex;flex-direction:column;transition:border-color .2s, transform .2s;}
+.card:hover{border-color:var(--amber);transform:translateY(-3px);}
+.card-title{font-family:var(--font-display);font-size:17px;font-weight:600;margin-bottom:6px;}
+.card-desc{font-size:13.5px;color:var(--muted);margin-bottom:14px;flex-grow:1;}
+.card-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px;}
+.tag{font-family:var(--font-mono);font-size:11px;background:var(--surface2);color:var(--teal);padding:3px 8px;border-radius:4px;}
+.card-link{font-family:var(--font-mono);font-size:12.5px;color:var(--amber);}
+.card-link:hover{text-decoration:underline;}
+
+/* EDUCATION */
+.edu-item{display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--border);font-size:14.5px;}
+.edu-item:last-child{border-bottom:none;}
+.edu-item .deg{font-weight:600;}
+.edu-item .sc{color:var(--muted);font-size:13px;}
+.edu-item .score{font-family:var(--font-mono);color:var(--amber);font-size:13px;}
+
+/* CONTACT / FOOTER */
+footer{padding:56px 0;text-align:center;}
+.contact-title{font-family:var(--font-display);font-size:30px;margin-bottom:14px;text-transform:uppercase;}
+.contact-sub{color:var(--muted);margin-bottom:28px;}
+.contact-links{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-bottom:40px;}
+.btn{
+  font-family:var(--font-mono);font-size:13px;padding:10px 20px;border-radius:6px;
+  border:1px solid var(--border);color:var(--text);
+}
+.btn.primary{background:var(--amber);color:#1A1305;border-color:var(--amber);font-weight:600;}
+.btn:hover{border-color:var(--teal);}
+.foot-note{font-family:var(--font-mono);font-size:11.5px;color:var(--muted);}
+
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease, transform .6s ease;}
+.reveal.in{opacity:1;transform:translateY(0);}
+@media(prefers-reduced-motion:reduce){.reveal{transition:none;opacity:1;transform:none;} .dot,.cursor{animation:none;}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="logo">rupak<span> gupta</span></div>
+    <div class="navlinks">
+      <a href="#summary">SUMMARY</a>
+      <a href="#skills">SKILLS</a>
+      <a href="#experience">EXPERIENCE</a>
+      <a href="#projects">PROJECTS</a>
+      <a href="#certifications">CERTS</a>
+      <a href="#contact">CONTACT</a>
+      <a href="./RG_Resume.pdf" download style="color:var(--amber);">RESUME ↓</a>
+    </div>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#summary">Summary</a>
+    <a href="#skills">Skills</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#contact">Contact</a>
+    <a href="./RG_Resume.pdf" download style="color:var(--amber);">Download Resume ↓</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-top">
+      <div class="hero-text">
+        <div class="eyebrow"><span class="dot"></span> AVAILABLE — 15 DAY NOTICE</div>
+        <h1>Rupak Gupta<br><span class="accent">Full Stack Developer</span></h1>
+        <p class="role">7+ years shipping production SaaS across construction, HVAC, e-commerce &amp; HR tech. Laravel, React.js, Next.js, Vue.js — with deep expertise in APIs, SSO, and payment integrations.</p>
+        <div class="contact-links" style="justify-content:flex-start;margin-bottom:0;">
+          <a class="btn primary" href="./RG_Resume.pdf" download>Download Resume</a>
+          <a class="btn" href="#contact">Get in touch</a>
+        </div>
+      </div>
+      <div class="avatar">RG</div>
+    </div>
+
+
+  </div>
+</header>
+
+<section id="summary">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">01</span><span class="sec-title">Summary</span></div>
+    <p class="summary-text">Enterprise Full Stack Developer with <strong>7+ years</strong> shipping production SaaS across construction, HVAC, e-commerce, and HR tech — cutting API response times <strong>20–30%</strong>, integrating <strong>3 payment gateways</strong>, and supporting <strong>10K+ users</strong> on multi-tenant platforms. Proficient in Laravel, PHP, React.js, Next.js, and Vue.js; deep expertise in RESTful APIs, OAuth2/SAML2 SSO, and third-party integrations (Stripe, Razorpay, Microsoft Graph). Actively leverages AI-augmented tools (Cursor AI, Claude Code, GitHub Copilot, Gemini) to accelerate delivery and improve code quality.</p>
+    <div class="stats">
+      <div class="stat"><div class="n">7+</div><div class="l">Years Experience</div></div>
+      <div class="stat"><div class="n">6</div><div class="l">Production Platforms</div></div>
+      <div class="stat"><div class="n">3</div><div class="l">Payment Gateways</div></div>
+      <div class="stat"><div class="n">10K+</div><div class="l">Users Supported</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">02</span><span class="sec-title">Core Technical Skills</span></div>
+
+    <div class="skill-group">
+      <div class="g-label">Frontend</div>
+      <div class="chips">
+        <span class="chip">React.js</span><span class="chip">Vue.js (2/3)</span><span class="chip">Next.js</span><span class="chip">TypeScript</span><span class="chip">JavaScript (ES6+)</span><span class="chip">HTML5</span><span class="chip">CSS3</span><span class="chip">Tailwind CSS</span><span class="chip">Bootstrap</span><span class="chip">Material UI</span><span class="chip">jQuery</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <div class="g-label">React.js Ecosystem</div>
+      <div class="chips">
+        <span class="chip">React Hooks</span><span class="chip">Redux Toolkit</span><span class="chip">Context API</span><span class="chip">React Router</span><span class="chip">SSR / SSG</span><span class="chip">Vite</span><span class="chip">Webpack</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <div class="g-label">Vue.js Ecosystem</div>
+      <div class="chips">
+        <span class="chip">Vuex</span><span class="chip">Pinia</span><span class="chip">Vue Router</span><span class="chip">Composition API</span><span class="chip">BootstrapVue</span><span class="chip">Vue Test Utils</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <div class="g-label">Backend &amp; Database</div>
+      <div class="chips">
+        <span class="chip">PHP</span><span class="chip">Laravel (6/8/12)</span><span class="chip">CodeIgniter</span><span class="chip">Node.js</span><span class="chip">Sequelize</span><span class="chip">REST / SOAP APIs</span><span class="chip">MySQL</span><span class="chip">PostgreSQL</span><span class="chip">MS SQL Server</span><span class="chip">Firebase</span><span class="chip">AWS S3</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <div class="g-label">Auth, Integrations &amp; Tools</div>
+      <div class="chips">
+        <span class="chip">OAuth2 / SAML2 SSO</span><span class="chip">Google 2FA</span><span class="chip">Laravel Passport/Sanctum</span><span class="chip">Spatie RBAC</span><span class="chip">Redis</span><span class="chip">Stripe</span><span class="chip">Razorpay</span><span class="chip">Authorize.net</span><span class="chip">Microsoft Graph</span><span class="chip">Dropbox</span><span class="chip">Sage Intacct</span><span class="chip">Git</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <div class="g-label">AI-Augmented Development</div>
+      <div class="chips">
+        <span class="chip">Cursor AI</span><span class="chip">Claude Code</span><span class="chip">GitHub Copilot</span><span class="chip">Gemini</span><span class="chip">OpenAI Codex</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">03</span><span class="sec-title">Work Experience</span></div>
+
+    <div class="job">
+      <div class="job-head">
+        <div class="job-title">Software Engineer (Full Stack)</div>
+        <div class="job-date">Jul 2022 — Present</div>
+      </div>
+      <div class="job-co">Galaxy Weblinks Ltd · Laravel, Vue.js, Next.js, Sequelize, React.js</div>
+      <ul>
+        <li>Spearheaded <strong>5+ enterprise modules</strong> (Pronovos, PlanningForProfit) end-to-end; mentored 1 junior developer; slashed API response times <strong>~20–30%</strong> via Eloquent query tuning, Redis caching, and Laravel Queues; architected OAuth2/SAML2 SSO, Google 2FA, and Spatie RBAC for iOS/Android multi-tenant platform supporting <strong>10K+ users</strong>.</li>
+        <li>Integrated <strong>3 payment gateways</strong> (Stripe, Razorpay, Authorize.net) and 4+ third-party services (AWS S3, Dropbox, Microsoft Graph, Sage Intacct) via REST/SOAP APIs; championed AI-augmented development to cut debugging cycles across 3+ concurrent projects.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <div class="job-title">Software Engineer (PHP / Full Stack)</div>
+        <div class="job-date">Dec 2018 — Jun 2022</div>
+      </div>
+      <div class="job-co">Prakhar Softwares Solutions Pvt. Ltd · PHP, Laravel, Vue.js, jQuery, WordPress, CodeIgniter</div>
+      <ul>
+        <li>Engineered full-stack <strong>Naukriyan.com</strong> job portal (e-governance + corporate recruitment) with role-specific panels for Admin, Employer, and Job Seeker across 3+ client projects.</li>
+        <li>Designed and launched <strong>BecilJobs.com</strong> for BECIL (Laravel + Vue.js) — admin panel, job listing management, and end-to-end candidate application flow.</li>
+        <li>Resolved production issues and completed a 3-month School Management System (Core PHP, MySQL) applying MVC architecture and relational database design.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">04</span><span class="sec-title">Key Projects</span></div>
+    <div class="projects">
+
+      <div class="card">
+        <div class="card-title">PlanningForProfit</div>
+        <div class="card-desc">HVAC/home comfort platform for job pricing, gross margin management, and full sales proposal lifecycle — multi-tier pricing, PDF generation, e-signature with OTP.</div>
+        <div class="card-tags"><span class="tag">Laravel 8</span><span class="tag">Vue 2</span><span class="tag">Stripe</span><span class="tag">Vuex</span></div>
+        <a class="card-link" href="https://app.planningforprofit.com/login" target="_blank" rel="noopener">app.planningforprofit.com →</a>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Construction Intelligence Cloud (Pronovos)</div>
+        <div class="card-desc">Cloud-based construction platform for financial tracking, change orders, RFIs, estimating, and facilities management with OAuth2/SAML2 SSO.</div>
+        <div class="card-tags"><span class="tag">Laravel 12</span><span class="tag">PHP 8.3</span><span class="tag">AWS S3</span><span class="tag">Passport</span></div>
+        <a class="card-link" href="https://app.pronovos.com/login" target="_blank" rel="noopener">app.pronovos.com →</a>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Resai — AI Resume Builder</div>
+        <div class="card-desc">AI-powered resume builder with credit-based Razorpay downloads; supports English and Hindi. Built responsive landing page and app UI.</div>
+        <div class="card-tags"><span class="tag">React.js</span><span class="tag">Next.js</span><span class="tag">Tailwind</span><span class="tag">Razorpay</span></div>
+        <a class="card-link" href="https://resai.co/en/home" target="_blank" rel="noopener">resai.co →</a>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Hall Constructor — Ticketing System</div>
+        <div class="card-desc">Web app for Hall Contractors to manage daily ticket punching and track work activities across Broker, Foreman, Vendor, and Admin roles.</div>
+        <div class="card-tags"><span class="tag">Laravel</span><span class="tag">Vue.js</span><span class="tag">Bootstrap</span></div>
+        <a class="card-link" href="https://hallticketing.com/account/login" target="_blank" rel="noopener">hallticketing.com →</a>
+      </div>
+
+      <div class="card">
+        <div class="card-title">24HourDigitizing</div>
+        <div class="card-desc">Embroidery e-commerce platform for digitizing/vector orders with 3 user types and Authorize.net subscription plans.</div>
+        <div class="card-tags"><span class="tag">Next.js</span><span class="tag">TypeScript</span><span class="tag">Sequelize</span></div>
+        <a class="card-link" href="https://www.24hourdigitizing.com/" target="_blank" rel="noopener">24hourdigitizing.com →</a>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Naukriyan.com — Job Portal</div>
+        <div class="card-desc">New-age job portal connecting employers and job seekers across e-governance and corporate sectors with video resume services.</div>
+        <div class="card-tags"><span class="tag">Laravel</span><span class="tag">Vue.js</span><span class="tag">MySQL</span></div>
+        <a class="card-link" href="#" onclick="return false;">Naukriyan.com</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">05</span><span class="sec-title">Education &amp; Certifications</span></div>
+    <div class="edu-item">
+      <div><div class="deg">MCA</div><div class="sc">FGIET College, Raebareli</div></div>
+      <div class="score">2018 · 76.85%</div>
+    </div>
+    <div class="edu-item">
+      <div><div class="deg">BCA</div><div class="sc">MCMT College, Varanasi</div></div>
+      <div class="score">2016 · 67%</div>
+    </div>
+    <div class="edu-item">
+      <div><div class="deg">12th — CBSE Board</div><div class="sc"></div></div>
+      <div class="score">2011 · 54.4%</div>
+    </div>
+    <div class="edu-item">
+      <div><div class="deg">10th — CBSE Board</div><div class="sc"></div></div>
+      <div class="score">2009 · 62.4%</div>
+    </div>
+    <div class="edu-item">
+      <div><div class="deg">AI Fundamentals — Google (Coursera)</div><div class="sc"></div></div>
+      <div class="score"></div>
+    </div>
+  </div>
+</section>
+
+<section id="certifications">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">06</span><span class="sec-title">Certifications &amp; Training</span></div>
+    <div class="projects">
+      <div class="card">
+        <div class="card-title">AI Fundamentals</div>
+        <div class="card-desc">Google (via Coursera) — foundations of AI/ML concepts applied to production engineering workflows.</div>
+        <div class="card-tags"><span class="tag">Google</span><span class="tag">Coursera</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">School Management System</div>
+        <div class="card-desc">3-month professional training project — Core PHP, MySQL, MVC architecture, relational database design.</div>
+        <div class="card-tags"><span class="tag">Core PHP</span><span class="tag">MySQL</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Android, Firebase &amp; SQL</div>
+        <div class="card-desc">Internal professional training covering mobile-adjacent development and cloud data fundamentals.</div>
+        <div class="card-tags"><span class="tag">Android</span><span class="tag">Firebase</span><span class="tag">SQL</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="contact-title">Let's build something.</div>
+    <p class="contact-sub">Open to Full Stack / Laravel / React roles — 15 day joining.</p>
+    <div class="contact-links">
+      <a class="btn primary" href="mailto:rupakgupta265@gmail.com">Email me</a>
+      <a class="btn" href="tel:+918382875958">+91-8382875958</a>
+      <a class="btn" href="https://linkedin.com/in/rupak-gupta-397262157" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="https://github.com/rgupta265" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <div class="foot-note">Azamgarh, UP, India — © 2026 Rupak Gupta</div>
+  </div>
+</footer>
+
+<script>
+const menuBtn = document.getElementById('menuBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+menuBtn.addEventListener('click', ()=> mobileMenu.classList.toggle('open'));
+mobileMenu.querySelectorAll('a').forEach(a=> a.addEventListener('click', ()=> mobileMenu.classList.remove('open')));
+
+const els = document.querySelectorAll('.impact-card, .card, .job, .stat');
+els.forEach(el => el.classList.add('reveal'));
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+},{threshold:0.15});
+els.forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
