@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>24 Hour Digitizing - Project Features, Tech Stack & Payment Workflows</title>
+  
+  <!-- Google Fonts: Inter & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- CSS Variables & Styling (Pure Vanilla CSS) -->
+  <style>
+    :root {
+      --font-primary: 'Inter', sans-serif;
+      --font-display: 'Outfit', sans-serif;
+      
+      /* Color Palette */
+      --bg-dark: #0f172a;
+      --bg-card: #1e293b;
+      --bg-card-hover: #334155;
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --primary: #6366f1;
+      --primary-light: #818cf8;
+      --primary-glow: rgba(99, 102, 241, 0.15);
+      --secondary: #14b8a6;
+      --secondary-light: #2dd4bf;
+      --accent: #ec4899;
+      --border-color: #334155;
+      
+      /* Workflow Flowchart Colors */
+      --flow-green: #10b981;
+      --flow-blue: #3b82f6;
+      --flow-yellow: #f59e0b;
+      --flow-red: #ef4444;
+      
+      /* Transitions */
+      --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-primary);
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+      padding-bottom: 60px;
+    }
+
+    /* Scrollbar Styling */
+    ::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--bg-dark);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: var(--border-color);
+      border-radius: 5px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--text-muted);
+    }
+
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Header & Hero Section */
+    header {
+      background: radial-gradient(circle at top right, rgba(99, 102, 241, 0.12), transparent 40%),
+                  radial-gradient(circle at top left, rgba(20, 184, 166, 0.08), transparent 30%);
+      padding: 60px 0 40px 0;
+      border-bottom: 1px solid var(--border-color);
+      position: relative;
+    }
+
+    .header-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(99, 102, 241, 0.1);
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      color: var(--primary-light);
+      padding: 6px 14px;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .header-badge::before {
+      content: '';
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background-color: var(--secondary);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--secondary);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(20, 184, 166, 0.7); }
+      70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(20, 184, 166, 0); }
+      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(20, 184, 166, 0); }
+    }
+
+    h1 {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #ffffff 40%, var(--primary-light) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 16px;
+    }
+
+    .lead-text {
+      font-size: 1.125rem;
+      color: var(--text-muted);
+      max-width: 750px;
+    }
+
+    /* Tabs Controller */
+    .tabs-nav {
+      display: flex;
+      gap: 8px;
+      margin-top: 40px;
+      background: rgba(30, 41, 59, 0.7);
+      border: 1px solid var(--border-color);
+      padding: 6px;
+      border-radius: 12px;
+      width: fit-content;
+      backdrop-filter: blur(10px);
+    }
+
+    .tab-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      padding: 12px 24px;
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .tab-btn:hover {
+      color: var(--text-main);
+      background-color: rgba(255, 255, 255, 0.04);
+    }
+
+    .tab-btn.active {
+      background-color: var(--primary);
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(99, 102, 241, 0.25);
+    }
+
+    /* Tab Content Panels */
+    .tab-panel {
+      display: none;
+      animation: fadeIn 0.4s ease-out forwards;
+      padding: 40px 0;
+    }
+
+    .tab-panel.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Grid Layouts */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    @media (max-width: 968px) {
+      .grid-2, .grid-3 {
+        grid-template-columns: 1fr;
+      }
+      h1 { font-size: 2.2rem; }
+      .tabs-nav {
+        flex-direction: column;
+        width: 100%;
+      }
+      .tab-btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+    /* Card Component */
+    .card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 30px;
+      transition: var(--transition-smooth);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background-color: transparent;
+      transition: var(--transition-smooth);
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      background-color: var(--bg-card-hover);
+      border-color: rgba(99, 102, 241, 0.3);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+    }
+
+    .card.primary-accent::before {
+      background-color: var(--primary);
+    }
+    .card.secondary-accent::before {
+      background-color: var(--secondary);
+    }
+    .card.danger-accent::before {
+      background-color: var(--accent);
+    }
+
+    .card-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      color: var(--primary-light);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 1.5rem;
+    }
+
+    .card:hover .card-icon {
+      background: var(--primary-glow);
+      color: var(--primary-light);
+      border-color: rgba(99, 102, 241, 0.3);
+      transform: scale(1.05);
+      transition: var(--transition-smooth);
+    }
+
+    .card-title {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: #ffffff;
+    }
+
+    .card-body {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .card-list {
+      margin-top: 15px;
+      list-style: none;
+    }
+
+    .card-list li {
+      margin-bottom: 8px;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 0.9rem;
+    }
+
+    .card-list li::before {
+      content: '✓';
+      color: var(--secondary);
+      font-weight: bold;
+    }
+
+    /* Section Typography */
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 1.85rem;
+      font-weight: 700;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #ffffff;
+    }
+
+    .section-desc {
+      color: var(--text-muted);
+      margin-bottom: 30px;
+      font-size: 1.05rem;
+    }
+
+    /* Lists and Tech Cards */
+    .tech-pill-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 15px;
+    }
+
+    .tech-pill {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 4px 12px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      transition: var(--transition-smooth);
+    }
+
+    .tech-pill:hover {
+      background-color: var(--primary-glow);
+      border-color: var(--primary-light);
+      color: #ffffff;
+    }
+
+    /* Workflow Diagram SVG styles */
+    .workflow-container {
+      background: #0b0f19;
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 30px;
+      overflow-x: auto;
+      margin-bottom: 30px;
+    }
+
+    .workflow-svg {
+      width: 100%;
+      min-width: 800px;
+      height: 480px;
+    }
+
+    .flow-node {
+      fill: var(--bg-card);
+      stroke: var(--border-color);
+      stroke-width: 2px;
+      rx: 10px;
+      ry: 10px;
+      transition: var(--transition-smooth);
+    }
+
+    .flow-node:hover {
+      fill: var(--bg-card-hover);
+      stroke: var(--primary);
+      filter: drop-shadow(0 4px 8px rgba(99, 102, 241, 0.15));
+    }
+
+    .flow-node.active-gateway {
+      stroke: var(--secondary);
+    }
+
+    .flow-text-header {
+      font-family: var(--font-display);
+      font-size: 12px;
+      font-weight: 700;
+      fill: #ffffff;
+      text-anchor: middle;
+    }
+
+    .flow-text-detail {
+      font-family: var(--font-primary);
+      font-size: 10px;
+      fill: var(--text-muted);
+      text-anchor: middle;
+    }
+
+    .flow-arrow {
+      stroke: var(--border-color);
+      stroke-width: 2.5px;
+      fill: none;
+      marker-end: url(#arrowhead);
+    }
+
+    .flow-arrow-highlight {
+      stroke: var(--primary);
+      stroke-dasharray: 5;
+      animation: dash 30s linear infinite;
+    }
+
+    @keyframes dash {
+      to {
+        stroke-dashoffset: -1000;
+      }
+    }
+
+    .flow-badge {
+      fill: rgba(99, 102, 241, 0.1);
+      stroke: var(--primary-light);
+      rx: 6px;
+    }
+
+    .flow-badge-text {
+      font-family: var(--font-primary);
+      font-size: 9px;
+      font-weight: 600;
+      fill: var(--primary-light);
+      text-anchor: middle;
+    }
+
+    /* Comparison Table */
+    .table-container {
+      width: 100%;
+      overflow-x: auto;
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      margin-top: 20px;
+      background-color: var(--bg-card);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    th {
+      background-color: rgba(255, 255, 255, 0.02);
+      border-bottom: 1px solid var(--border-color);
+      color: #ffffff;
+      font-family: var(--font-display);
+      font-weight: 600;
+      padding: 16px 20px;
+      font-size: 0.95rem;
+    }
+
+    td {
+      border-bottom: 1px solid var(--border-color);
+      color: var(--text-muted);
+      padding: 16px 20px;
+      font-size: 0.9rem;
+      vertical-align: top;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:hover td {
+      color: var(--text-main);
+      background-color: rgba(255, 255, 255, 0.01);
+    }
+
+    .badge-status {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .badge-success { background: rgba(16, 185, 129, 0.1); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.2); }
+    .badge-info { background: rgba(59, 130, 246, 0.1); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.2); }
+    .badge-warning { background: rgba(245, 158, 11, 0.1); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.2); }
+    .badge-danger { background: rgba(239, 68, 68, 0.1); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.2); }
+
+    /* Footer Details */
+    footer {
+      border-top: 1px solid var(--border-color);
+      padding-top: 40px;
+      margin-top: 60px;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    .interactive-label {
+      background: rgba(20, 184, 166, 0.1);
+      border: 1px solid rgba(20, 184, 166, 0.3);
+      color: var(--secondary-light);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 500;
+    }
+
+    /* CSS Flowchart Overlay info panels */
+    .flow-info-box {
+      margin-top: 20px;
+      background: rgba(30, 41, 59, 0.4);
+      border-radius: 12px;
+      padding: 20px;
+      border: 1px dashed var(--border-color);
+      font-size: 0.9rem;
+    }
+
+    .flow-info-title {
+      font-family: var(--font-display);
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <div class="header-badge">Staging Environment Directory Documentation</div>
+      <h1>24 Hour Digitizing System Architecture</h1>
+      <p class="lead-text">
+        An in-depth exploration of the project's premium features, utilized technology stack, database relations, and secure payment processing workflows.
+      </p>
+      
+      <!-- Interactive Tabs Selector -->
+      <div class="tabs-nav">
+        <button class="tab-btn active" onclick="switchTab(event, 'features-tab')">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2H6a2 2 0 01-2-2v-4zM14 16a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2h-2a2 2 0 01-2-2v-4z"/></svg>
+          Project Features
+        </button>
+        <button class="tab-btn" onclick="switchTab(event, 'tech-tab')">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+          Technology Stack
+        </button>
+        <button class="tab-btn" onclick="switchTab(event, 'payment-tab')">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
+          Payment Gateway Workflows
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Panels -->
+  <main class="container">
+    
+    <!-- PANEL 1: PROJECT FEATURES -->
+    <section id="features-tab" class="tab-panel active">
+      <h2 class="section-title">
+        <span style="color: var(--primary-light);">01.</span> Core Business & Application Features
+      </h2>
+      <p class="section-desc">
+        The application is an industry-grade B2B portal offering Embroidery Digitizing and Vector Conversion services to commercial printers, embroiders, and corporate clients.
+      </p>
+
+      <div class="grid-3">
+        <!-- Card 1: Order Lifecycle -->
+        <div class="card primary-accent">
+          <div class="card-icon">📦</div>
+          <h3 class="card-title">Order Lifecycle Management</h3>
+          <p class="card-body">
+            End-to-end workflow from submitting a quote request or placing a direct order, through to design execution, review, correction logs, and production-ready deliveries.
+          </p>
+          <ul class="card-list">
+            <li>Customer uploads source artwork</li>
+            <li>Admin reviews & assigns to specific vendor</li>
+            <li>Vendor delivers embroidery/vector versions</li>
+            <li>Customer files revisions or downloads deliverables</li>
+          </ul>
+        </div>
+
+        <!-- Card 2: User Portals -->
+        <div class="card secondary-accent">
+          <div class="card-icon">👥</div>
+          <h3 class="card-title">Three-Tiered Access Control</h3>
+          <p class="card-body">
+            Role-based dashboard systems custom-tailored for the three principal users of the ecosystem.
+          </p>
+          <ul class="card-list">
+            <li><strong>Customers:</strong> Manage designs, pay invoices, choose membership levels, and checkout carts.</li>
+            <li><strong>Vendors:</strong> Receive job assignments, report stitches, request charges, and download design files.</li>
+            <li><strong>Admins:</strong> Oversee order workflows, manage price rules, view sales graphs, and track receivables.</li>
+          </ul>
+        </div>
+
+        <!-- Card 3: Pricing Engine -->
+        <div class="card danger-accent">
+          <div class="card-icon">⚡</div>
+          <h3 class="card-title">Dynamic Pricing Engine</h3>
+          <p class="card-body">
+            Highly configurable pricing mechanism taking calculations from user levels, parameters, and time deadlines.
+          </p>
+          <ul class="card-list">
+            <li><strong>Tiers:</strong> Regular, Silver, Gold, Platinum plans.</li>
+            <li><strong>Stitch Ranges:</strong> Tiered rates (e.g. 1-10k, 10-20k, etc.)</li>
+            <li><strong>Vector Complexity:</strong> Simple vs. Complex multipliers.</li>
+            <li><strong>Surcharges:</strong> Delivery speed variables (Rush / Standard).</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="grid-2" style="margin-top: 30px;">
+        <!-- Card 4: Reports & Overdue -->
+        <div class="card secondary-accent">
+          <div class="card-icon">📊</div>
+          <h3 class="card-title">Unpaid Orders & Statement Reports</h3>
+          <p class="card-body">
+            Comprehensive admin ledger utility for monitoring outstanding revenue and receivables.
+          </p>
+          <ul class="card-list">
+            <li>Real-time dashboard summaries for overdue counts and unpaid order aggregates.</li>
+            <li>Color-coded warnings (Yellow for unpaid, Red bold highlighting for overdue).</li>
+            <li>Grace periods automated based on customer's Payment Terms account tier.</li>
+            <li>Integration with automated SMTP notification reminders.</li>
+          </ul>
+        </div>
+
+        <!-- Card 5: Cloud Infrastructure -->
+        <div class="card primary-accent">
+          <div class="card-icon">☁️</div>
+          <h3 class="card-title">AWS Integrations & Compression</h3>
+          <p class="card-body">
+            Built-in storage optimizations and cloud integration utilities to support large file uploads smoothly.
+          </p>
+          <ul class="card-list">
+            <li>Secure integration with AWS S3 using SDK APIs for artwork distribution.</li>
+            <li>Auto-compression of raw design attachments directly inside client browser.</li>
+            <li>Encrypted tokenized API endpoints safeguarding data flows.</li>
+            <li>Structured file names preserving order and revision logs.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PANEL 2: TECH STACK -->
+    <section id="tech-tab" class="tab-panel">
+      <h2 class="section-title">
+        <span style="color: var(--primary-light);">02.</span> Enterprise Technology Stack
+      </h2>
+      <p class="section-desc">
+        A modern decoupled full-stack React framework configured to run with structured database models and scalable cloud infrastructure.
+      </p>
+
+      <div class="grid-2">
+        <!-- Tech Column: Frontend -->
+        <div class="card primary-accent">
+          <div class="card-icon">💻</div>
+          <h3 class="card-title">Frontend Architecture</h3>
+          <p class="card-body">
+            Responsive user interfaces utilizing component design patterns and state-based page routers.
+          </p>
+          <div class="tech-pill-container">
+            <span class="tech-pill">Next.js 13.4 (React 18)</span>
+            <span class="tech-pill">TypeScript</span>
+            <span class="tech-pill">Tailwind CSS (Dev / Styling)</span>
+            <span class="tech-pill">Sass (SCSS)</span>
+            <span class="tech-pill">Material UI (@material-ui/core)</span>
+            <span class="tech-pill">Bootstrap & FontAwesome Icons</span>
+            <span class="tech-pill">React Hook Form</span>
+            <span class="tech-pill">Quill Editor (Rich Text API)</span>
+            <span class="tech-pill">React Toastify</span>
+            <span class="tech-pill">Swiper.js Slider</span>
+          </div>
+          <p class="card-body" style="margin-top: 15px; font-size: 0.85rem;">
+            * Client-side handles state variables, processes multi-cart checkouts, verifies expiration limits, compresses images before transmitting, and decrypts server response strings dynamically.
+          </p>
+        </div>
+
+        <!-- Tech Column: Backend & Database -->
+        <div class="card secondary-accent">
+          <div class="card-icon">⚙️</div>
+          <h3 class="card-title">Backend Services & Data Layer</h3>
+          <p class="card-body">
+            RESTful serverless API endpoints running in Node.js, mapped to database engines via ORM connections.
+          </p>
+          <div class="tech-pill-container">
+            <span class="tech-pill">Next.js API Serverless Routes</span>
+            <span class="tech-pill">Node.js / Express Middleware</span>
+            <span class="tech-pill">MySQL Database</span>
+            <span class="tech-pill">Sequelize ORM</span>
+            <span class="tech-pill">Sequelize-TypeScript</span>
+            <span class="tech-pill">Formidable & Multer (Multi-part parsing)</span>
+            <span class="tech-pill">JSON Web Tokens (JWT Auth)</span>
+            <span class="tech-pill">Payload Encryption / Decryption Service</span>
+            <span class="tech-pill">Nodemailer SMTP Client</span>
+          </div>
+          <p class="card-body" style="margin-top: 15px; font-size: 0.85rem;">
+            * Database contains entities like <code>user</code>, <code>digitizingorder</code>, <code>vectorOrders</code>, <code>cart</code>, <code>creditApplication</code>, <code>country</code>, and <code>state</code>, mapped dynamically using Sequelize models.
+          </p>
+        </div>
+      </div>
+
+      <div class="card danger-accent" style="margin-top: 30px;">
+        <div class="card-icon">🌩️</div>
+        <h3 class="card-title">Cloud Infrastructure & Security Ecosystem</h3>
+        <div class="grid-3" style="margin-top: 15px; gap: 20px;">
+          <div>
+            <h4 style="color: #ffffff; font-size: 1rem; margin-bottom: 8px;">AWS Cloud Storage (S3)</h4>
+            <p style="color: var(--text-muted); font-size: 0.85rem;">
+              Stores user-uploaded images, design instructions, and vendor output ZIP files securely. Managed dynamically via AWS SDK node integrations.
+            </p>
+          </div>
+          <div>
+            <h4 style="color: #ffffff; font-size: 1rem; margin-bottom: 8px;">AWS SES & Transactional Email</h4>
+            <p style="color: var(--text-muted); font-size: 0.85rem;">
+              SMTP engine for system triggers. Sends automated invoices, client statement reminders, validation codes, and payment error alerts.
+            </p>
+          </div>
+          <div>
+            <h4 style="color: #ffffff; font-size: 1rem; margin-bottom: 8px;">Payload Cryptography & Captcha</h4>
+            <p style="color: var(--text-muted); font-size: 0.85rem;">
+              Custom local payload filter encrypts API responses and decodes incoming client payloads to prevent tampering. Forms are guarded by Google reCAPTCHA.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PANEL 3: PAYMENT GATEWAY WORKFLOWS -->
+    <section id="payment-tab" class="tab-panel">
+      <h2 class="section-title">
+        <span style="color: var(--primary-light);">03.</span> Secure Payment Gateway Workflows
+      </h2>
+      <p class="section-desc">
+        The portal supports secure credit-based and terms-based transaction methods, operating primarily via <strong>Authorize.Net</strong> APIs and <strong>PayPal</strong>.
+      </p>
+
+      <!-- SVG Flowchart -->
+      <div class="workflow-container">
+        <h4 style="font-family: var(--font-display); color:#ffffff; font-size: 1.1rem; margin-bottom: 20px; display: flex; align-items: center; gap: 8px;">
+          <span>Visual Workflow Flowchart</span>
+          <span class="interactive-label">Interactive Path</span>
+        </h4>
+        
+        <svg class="workflow-svg" viewBox="0 0 1000 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Definitions for Marker arrows -->
+          <defs>
+            <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="8" refY="3.5" orient="auto">
+              <polygon points="0 0, 10 3.5, 0 7" fill="#475569" />
+            </marker>
+            <marker id="arrowhead-highlight" markerWidth="10" markerHeight="7" refX="8" refY="3.5" orient="auto">
+              <polygon points="0 0, 10 3.5, 0 7" fill="#818cf8" />
+            </marker>
+          </defs>
+
+          <!-- Start Node -->
+          <g>
+            <rect class="flow-node" x="20" y="210" width="130" height="60" />
+            <text class="flow-text-header" x="85" y="240">Client Checkout</text>
+            <text class="flow-text-detail" x="85" y="255">Cart Invoices</text>
+          </g>
+
+          <!-- Arrow from Start to Decision -->
+          <path class="flow-arrow flow-arrow-highlight" d="M150 240 H200" marker-end="url(#arrowhead-highlight)" />
+
+          <!-- Decision Node (Method selection) -->
+          <g>
+            <polygon points="200,240 270,180 340,240 270,300" class="flow-node active-gateway" />
+            <text class="flow-text-header" x="270" y="235">Billing Mode</text>
+            <text class="flow-text-detail" x="270" y="250">Check Profile</text>
+          </g>
+
+          <!-- Branch 1: Credit Card Flow (Top) -->
+          <path class="flow-arrow" d="M270 180 V90 H380" marker-end="url(#arrowhead)" />
+          <g>
+            <rect class="flow-node" x="380" y="60" width="160" height="60" />
+            <text class="flow-text-header" x="460" y="85">Credit Card Authorization</text>
+            <text class="flow-text-detail" x="460" y="100">AuthOnly ($50 Max Limit)</text>
+          </g>
+          
+          <path class="flow-arrow" d="M540 90 H590" marker-end="url(#arrowhead)" />
+          <g>
+            <polygon points="590,90 640,60 690,90 640,120" class="flow-node" />
+            <text class="flow-text-header" x="640" y="94">Auth OK?</text>
+          </g>
+
+          <!-- Success Route Credit Card -->
+          <path class="flow-arrow" d="M690 90 H770" marker-end="url(#arrowhead)" />
+          <g>
+            <rect class="flow-node" x="770" y="60" width="180" height="60" />
+            <text class="flow-text-header" x="860" y="85">Capture Transaction</text>
+            <text class="flow-text-detail" x="860" y="100">AuthCapture & Order Active</text>
+          </g>
+
+          <!-- Failure Route Credit Card -->
+          <path class="flow-arrow" d="M640 120 V160 H460 V120" marker-end="url(#arrowhead)" />
+          <!-- Error SMTP Notification node -->
+          <path class="flow-arrow" d="M640 120 V175 H690" marker-end="url(#arrowhead)" />
+          <g>
+            <rect class="flow-node" x="690" y="145" width="180" height="60" />
+            <text class="flow-text-header" x="780" y="170">Trigger Payment Error Email</text>
+            <text class="flow-text-detail" x="780" y="185">Nodemailer Alert & Log</text>
+          </g>
+
+          <!-- Branch 2: Account Terms Flow (Bottom) -->
+          <path class="flow-arrow" d="M270 300 V390 H380" marker-end="url(#arrowhead)" />
+          <g>
+            <rect class="flow-node" x="380" y="360" width="160" height="60" />
+            <text class="flow-text-header" x="460" y="385">Payment Terms Invoice</text>
+            <text class="flow-text-detail" x="460" y="400">On Terms / Wholesale</text>
+          </g>
+
+          <path class="flow-arrow" d="M540 390 H590" marker-end="url(#arrowhead)" />
+          <g>
+            <rect class="flow-node" x="590" y="360" width="160" height="60" />
+            <text class="flow-text-header" x="670" y="385">Grace Period Timer</text>
+            <text class="flow-text-detail" x="670" y="400">Calculated via date-fns</text>
+          </g>
+
+          <path class="flow-arrow" d="M750 390 H800" marker-end="url(#arrowhead)" />
+          <g>
+            <rect class="flow-node" x="800" y="360" width="180" height="60" />
+            <text class="flow-text-header" x="890" y="385">Unpaid Dashboard</text>
+            <text class="flow-text-detail" x="890" y="400">Admin Ledger & Red Badges</text>
+          </g>
+
+          <!-- Label Badges on Arrows -->
+          <g>
+            <rect class="flow-badge" x="240" y="125" width="60" height="18" />
+            <text class="flow-badge-text" x="270" y="137">Retail / Cart</text>
+            
+            <rect class="flow-badge" x="240" y="335" width="60" height="18" />
+            <text class="flow-badge-text" x="270" y="347">Corporate</text>
+          </g>
+        </svg>
+
+        <div class="flow-info-box">
+          <div class="flow-info-title">💡 System Architecture Flow Detail</div>
+          <p>
+            When a customer processes items in their cart, the system checks whether they possess a custom corporate account status ("On Terms"). For standard retail orders, credit cards are charged immediately or authorized to protect delivery. For terms accounts, invoices accrue with grace periods calculated relative to order timestamps.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <!-- Card: Credit Card Processing Details -->
+        <div class="card primary-accent">
+          <div class="card-icon">💳</div>
+          <h3 class="card-title">Credit Card Flow (Authorize.Net Integration)</h3>
+          <p class="card-body">
+            Direct card operations run on backend server endpoints (<code>api/payment.js</code> & <code>api/paymentAuth.js</code>) via secure API requests.
+          </p>
+          <ul class="card-list" style="margin-top: 15px;">
+            <li><strong>Authorization Capture (authCaptureTransaction):</strong> Runs for normal shop checkouts. Instantly charges the customer's card and marks the design order status as "Active".</li>
+            <li><strong>Authorization Only (authOnlyTransaction):</strong> Specifically sets a temporary reserve hold limit up to $50.00 to verify account solvency before full design files are released.</li>
+            <li><strong>Fallback Error Mailing:</strong> If payment API throws exceptions (incorrect cvv, insufficient funds), backend triggers <code>api/paymentErrorEmail</code>, alerts the user, and sends diagnostic details to admins.</li>
+          </ul>
+        </div>
+
+        <!-- Card: On Terms / Unpaid Accounts Details -->
+        <div class="card secondary-accent">
+          <div class="card-icon">📝</div>
+          <h3 class="card-title">Payment Terms Accounts ("On Terms")</h3>
+          <p class="card-body">
+            Business accounts registered under pre-negotiated invoice cycles bypass credit card gates during basic design checkouts.
+          </p>
+          <ul class="card-list" style="margin-top: 15px;">
+            <li><strong>Grace Period Management:</strong> Uses <code>date-fns</code> library utility to check registration grace levels (e.g. Net 15, Net 30, Net 45 days).</li>
+            <li><strong>Ledger & Overdue Badging:</strong> Automatically marks orders as "Overdue" using prominent red visual rows in report dashboards the moment current date values slip past due limits.</li>
+            <li><strong>Balance Statements:</strong> Generates dynamic monthly PDF summaries using <code>jspdf</code> and `xlsx` plugins, keeping clients informed of outstanding invoices.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Comparison of Payment Workflows -->
+      <h3 class="section-title" style="margin-top: 40px; margin-bottom: 10px;">Payment Flow Comparison Matrix</h3>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Workflow Aspect</th>
+              <th>Credit Card Checkout</th>
+              <th>Payment Terms Accounts</th>
+              <th>Recurring Membership Subscription</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Primary Method</strong></td>
+              <td>Authorize.Net API / PayPal checkout SDK</td>
+              <td>Invoiced Balance Statements</td>
+              <td>Recurring Billing (Monthly/Yearly)</td>
+            </tr>
+            <tr>
+              <td><strong>API Actions Called</strong></td>
+              <td><code>authCaptureTransaction</code> / <code>authOnlyTransaction</code></td>
+              <td><code>api/reports/unpaid-orders</code>, <code>api/submitUnpaidOrders</code></td>
+              <td><code>createRecurringSubscription</code> / <code>cancelRecurringSubscription</code></td>
+            </tr>
+            <tr>
+              <td><strong>Payment Status Badge</strong></td>
+              <td><span class="badge-status badge-success">Completed</span> / <span class="badge-status badge-danger">Failed</span></td>
+              <td><span class="badge-status badge-warning">Unpaid</span> / <span class="badge-status badge-danger">Overdue</span></td>
+              <td><span class="badge-status badge-info">Active Subscription</span></td>
+            </tr>
+            <tr>
+              <td><strong>Limit / Validation</strong></td>
+              <td>Max $50 limit on AuthOnly actions to secure orders.</td>
+              <td>Grace periods checked using <code>date-fns</code> against order timestamps.</td>
+              <td>Automatic recurring card updates via scheduler.</td>
+            </tr>
+            <tr>
+              <td><strong>Communication Triggers</strong></td>
+              <td><code>paymentErrorEmail</code> alerts upon terminal errors.</td>
+              <td><code>customerpaymentnotice</code> reminders for collections.</td>
+              <td><code>customerrenewalreminder</code> alerts on billing events.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <div class="container">
+    <footer>
+      <p>&copy; 2026 24 Hour Digitizing. Staging Site Architecture & Technical Blueprints.</p>
+    </footer>
+  </div>
+
+  <!-- JavaScript Tabs Handler -->
+  <script>
+    function switchTab(event, tabId) {
+      // Hide all panels
+      const panels = document.querySelectorAll('.tab-panel');
+      panels.forEach(panel => {
+        panel.classList.remove('active');
+      });
+
+      // Deactivate all tab buttons
+      const buttons = document.querySelectorAll('.tab-btn');
+      buttons.forEach(btn => {
+        btn.classList.remove('active');
+      });
+
+      // Show current panel & activate current button
+      document.getElementById(tabId).classList.add('active');
+      event.currentTarget.classList.add('active');
+    }
+  </script>
+</body>
+</html>
